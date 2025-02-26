@@ -1,0 +1,863 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3a0ca3;
+  --accent-color: #f72585;
+  --light-bg: #f8f9fa;
+  --dark-bg: #212529;
+  --success-color: #4cc9f0;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--dark-bg);
+  overflow-x: hidden;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+#UpperBox {
+  width: 100%;
+  height: 90px;
+  padding: 15px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Title {
+  font-size: 32px;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-align: center;
+  width: auto;
+}
+
+.arrow {
+  width: 30px;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  width: 35px;
+  filter: brightness(1.2);
+}
+
+#Boxes {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 150px); /* Augmenté la hauteur en réduisant la marge */
+  max-width: 100%;
+}
+
+/* Ajustement de la taille initiale du tableau */
+#LeftBox {
+  flex: 3.5; /* Valeur par défaut avant agrandissement ou réduction */
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: auto; /* Garantit le défilement dans toutes les directions */
+  padding: 0;
+  position: relative;
+  border: none;
+  transition: all 0.5s ease; /* Transition pour toutes les propriétés */
+  max-height: 100%; /* S'assure que la hauteur ne dépasse pas */
+}
+
+#RightBox {
+  flex: 2;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  position: relative;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  transition: all 0.5s ease; /* Transition pour toutes les propriétés */
+}
+
+/* Ajout d'un effet de surbrillance pour le RightBox */
+#RightBox:hover {
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+}
+
+/* Mise à jour du style pour le bouton flèche */
+#Button2 {
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  border: 0;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transition plus rapide pour le bouton */
+  z-index: 10;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#Button2:hover {
+  background-color: var(--secondary-color);
+  width: 35px;
+}
+
+.arrow2 {
+  width: 15px;
+  transition: all 0.2s ease;
+  filter: brightness(0) invert(1);
+}
+
+#LeftTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: none;
+  background-color: white;
+  table-layout: fixed; /* Pour améliorer le rendu et la performance */
+  min-width: 800px; /* Assure une largeur minimale pour permettre le défilement horizontal */
+}
+
+#LeftTable thead th {
+  padding: 15px 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#Base {
+  background-color: var(--primary-color);
+  width: 15%;
+}
+
+#PastTense {
+  background-color: var(--primary-color);
+  width: 15%;
+}
+
+#PastPart {
+  background-color: var(--primary-color);
+  width: 15%;
+}
+
+#Transl {
+  background-color: var(--primary-color);
+  width: 35%;
+}
+
+/* Assurer que la colonne des méthodes est suffisamment large */
+#Meth {
+  background-color: var(--primary-color);
+  width: 22%;
+  min-width: 170px;
+}
+
+#LeftTable tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e9ecef;
+  overflow: hidden; /* Empêche le texte de déborder */
+  text-overflow: ellipsis; /* Ajoute des points de suspension si le texte déborde */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+#LeftTable tr:nth-child(even) {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+#LeftTable tr:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+}
+
+#Base,
+#PastTense,
+#PastPart,
+#Transl,
+#Meth {
+  background-color: var(--primary-color);
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+#Addverbe,
+#Find {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  position: static;
+  margin: 0;
+}
+
+#Addverbe:hover,
+#Find:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+#VerbtoFind {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: all 0.2s ease;
+  position: static;
+  margin: 0;
+}
+
+#VerbtoFind:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.found-row {
+  background-color: rgba(76, 201, 240, 0.3) !important;
+  animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(247, 37, 133, 0.4);
+  }
+  100% {
+    background-color: rgba(76, 201, 240, 0.3);
+  }
+}
+
+#CarrePointee {
+  flex: 1;
+  border: 1px solid #e9ecef;
+  border-radius: var(--border-radius);
+  overflow: auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+}
+
+#Listes {
+  list-style-type: none;
+  padding: 10px;
+  margin-left: 100px;
+}
+
+#Listes li {
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+
+.lettres {
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.lettres:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 3px rgba(247, 37, 133, 0.3);
+}
+
+#Listes span {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  padding: 5px 0;
+}
+
+a:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+li {
+  margin-bottom: 5px;
+  padding: 3px 0;
+}
+
+h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+#Stats {
+  background-color: var(--success-color);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+  height: auto;
+  min-height: 50px;
+}
+
+#Stats:hover {
+  overflow-x: auto;
+}
+
+/* Styles pour les modales */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  width: 450px;
+  max-width: 90%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e9ecef;
+}
+
+.modal-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background-color: #e9ecef;
+  color: #212529;
+}
+
+.secondary-btn:hover {
+  background-color: #ced4da;
+  transform: translateY(-2px);
+}
+
+/* Styles pour les boutons dans le tableau */
+.edit-btn,
+.update-btn,
+.delete-btn {
+  padding: 5px 7px;
+  margin: 0 2px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 11px;
+  min-width: 45px;
+  display: inline-block;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.update-btn {
+  background-color: #4cc9f0;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f72585;
+  color: white;
+}
+
+.edit-btn:hover,
+.update-btn:hover,
+.delete-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Styles pour la modale de formulaire */
+.form-modal-container {
+  width: 500px;
+  max-width: 95%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.form-modal-container .modal-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  padding: 18px 20px;
+}
+
+.form-modal-container .modal-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-modal-container .modal-content {
+  padding: 25px;
+  background-color: #fff;
+}
+
+.form-modal-container .modal-footer {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+}
+
+.verb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  font-size: 15px;
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--primary-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+  outline: none;
+}
+
+.form-group input.error {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(247, 37, 133, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+/* Boutons dans la modale de formulaire */
+.form-modal-container .modal-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 100px;
+  transition: all 0.3s ease;
+}
+
+.form-modal-container .primary-btn {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border: none;
+}
+
+.form-modal-container .primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-modal-container .secondary-btn {
+  background-color: #e9ecef;
+  color: var(--secondary-color);
+  border: 1px solid #ced4da;
+}
+
+.form-modal-container .secondary-btn:hover {
+  background-color: #ced4da;
+  transform: translateY(-3px);
+}
+
+/* Responsive pour la modale de formulaire */
+@media (max-width: 576px) {
+  .form-modal-container {
+    width: 92%;
+    margin: 0 10px;
+  }
+
+  .form-modal-container .modal-header {
+    padding: 15px;
+  }
+
+  .form-modal-container .modal-header h3 {
+    font-size: 18px;
+  }
+
+  .form-modal-container .modal-content {
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .verb-form {
+    gap: 14px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-modal-container .modal-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 80px;
+  }
+}
+
+/* Responsive pour la modale de formulaire */
+@media (max-width: 576px) {
+  .form-modal-container {
+    width: 95%;
+  }
+
+  .modal-header h3 {
+    font-size: 16px;
+  }
+
+  .modal-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .modal-footer {
+    padding: 10px 15px;
+  }
+
+  .modal-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #Boxes {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #LeftBox,
+  #RightBox {
+    width: 100%;
+    max-height: 500px;
+    overflow: auto; /* Garantit le défilement dans toutes les directions */
+  }
+
+  #LeftBox {
+    min-height: 400px; /* Hauteur minimale pour voir suffisamment de contenu */
+  }
+
+  #Listes {
+    margin-left: 10%;
+  }
+
+  /* Masquer le bouton flèche sur petit écran */
+  #Button2 {
+    display: none;
+  }
+
+  /* Ajuster les marges quand le bouton est masqué */
+  #RightBox {
+    padding-left: 15px; /* Restaurer le padding normal */
+  }
+
+  /* Amélioration de l'affichage du tableau sur petits écrans */
+  #LeftTable {
+    font-size: 14px; /* Texte légèrement plus petit */
+  }
+
+  #LeftTable tbody td {
+    padding: 8px 5px; /* Padding réduit */
+    white-space: normal; /* Permettre le retour à la ligne */
+    word-break: break-word; /* Casser les mots longs */
+    max-width: 100%; /* S'assurer que la cellule ne dépasse pas */
+  }
+
+  #LeftTable thead th {
+    padding: 10px 5px; /* Padding réduit pour les en-têtes */
+  }
+
+  /* Ajuster l'affichage des colonnes pour mieux utiliser l'espace */
+  #Base {
+    width: 12%;
+  }
+
+  #PastTense {
+    width: 12%;
+  }
+
+  #PastPart {
+    width: 12%;
+  }
+
+  #Transl {
+    width: 40%; /* Donner plus d'espace à la traduction */
+  }
+
+  #Meth {
+    width: 24%;
+    min-width: 150px;
+  }
+
+  /* Style pour les boutons sur petit écran */
+  .edit-btn,
+  .update-btn,
+  .delete-btn {
+    padding: 4px 6px;
+    font-size: 10px;
+    min-width: 40px;
+  }
+}
+
+/* Styles spécifiques pour les très petits écrans (smartphones) */
+@media (max-width: 576px) {
+  #LeftTable {
+    font-size: 12px; /* Texte encore plus petit */
+    min-width: 650px; /* Largeur minimale plus petite pour les mobiles */
+  }
+
+  #LeftBox {
+    overflow-x: auto; /* Force le défilement horizontal sur mobile */
+    overflow-y: auto; /* Force le défilement vertical sur mobile */
+    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
+    max-height: 400px; /* Hauteur maximale sur mobile */
+  }
+
+  /* Réorganiser légèrement les colonnes */
+  #Base {
+    width: 15%;
+  }
+
+  #PastTense {
+    width: 15%;
+  }
+
+  #PastPart {
+    width: 15%;
+  }
+
+  #Transl {
+    width: 30%; /* Réduire un peu pour donner plus d'espace aux méthodes */
+  }
+
+  #Meth {
+    width: 25%;
+    min-width: 120px;
+  }
+
+  /* Styles spécifiques pour les boutons sur très petit écran */
+  .edit-btn,
+  .update-btn,
+  .delete-btn {
+    min-width: 35px;
+    margin: 0 1px;
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+
+  /* Boutons de formulaire plus adaptés */
+  #Addverbe,
+  #Find {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  form {
+    flex-wrap: wrap;
+  }
+
+  #VerbtoFind {
+    min-width: 100px;
+  }
+
+  /* Amélioration du défilement tactile pour les tableaux sur mobile */
+  #LeftBox::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 7px;
+  }
+
+  #LeftBox::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Assurer que la table reste accessible en défilement */
+  #LeftTable thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+}
+
+/* Mise à jour de la fonction d'agrandissement du tableau */
+@media (min-width: 1200px) {
+  #Boxes {
+    height: calc(100vh - 100px); /* Encore plus grand sur les grands écrans */
+  }
+
+  body {
+    padding: 15px 30px; /* Plus d'espace horizontal sur les grands écrans */
+  }
+}
+
+/* Responsive adaptations pour les modales */
+@media (max-width: 576px) {
+  .modal-container {
+    width: 95%;
+  }
+
+  .modal-header h3 {
+    font-size: 16px;
+  }
+
+  .modal-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .modal-footer {
+    padding: 10px 15px;
+  }
+
+  .modal-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}

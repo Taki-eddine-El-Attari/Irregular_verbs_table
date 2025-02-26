@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles.css" />
+    <title>Irregular Verbs</title>
+  </head>
+
+  <body>
+    <div id="UpperBox">
+      <h1 id="Title">English : Irregular Verbs</h1>
+    </div>
+    <div id="Boxes">
+      <div id="LeftBox">
+        <table id="LeftTable">
+          <thead>
+            <tr>
+              <th id="Base">Base form</th>
+              <th id="PastTense">Past tense</th>
+              <th id="PastPart">Past participle</th>
+              <th id="Transl">Translation (French)</th>
+              <th id="Meth">Methods</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content will be loaded dynamically -->
+          </tbody>
+        </table>
+      </div>
+      <div id="RightBox">
+        <button id="Button2" onclick="Fulltablebutton()">
+          <img src="Graphics/Right.png" alt="Right" class="arrow2" />
+        </button>
+
+        <form>
+          <button id="Addverbe" type="button" onclick="AddVerb()">
+            Add verb
+          </button>
+          <input
+            type="text"
+            id="VerbtoFind"
+            name="VerbtoFind"
+            maxlength="20"
+            placeholder="Search for a verb..."
+            required
+          />
+          <button type="button" onclick="findAndMoveVerb()" id="Find">
+            Find
+          </button>
+        </form>
+
+        <div id="CarrePointee">
+          <ul id="Listes">
+            <!-- List content will be loaded dynamically -->
+          </ul>
+        </div>
+
+        <h5>Statistics</h5>
+        <div id="Stats">
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal standard -->
+    <div id="modalOverlay" class="modal-overlay">
+      <div id="modalContainer" class="modal-container">
+        <div class="modal-header">
+          <h3 id="modalTitle">Message</h3>
+          <button id="closeModal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-content">
+          <p id="modalMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button id="modalOkBtn" class="modal-btn primary-btn">OK</button>
+          <button id="modalCancelBtn" class="modal-btn secondary-btn">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de confirmation -->
+    <div id="confirmModalOverlay" class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="confirmModalTitle">Confirmation</h3>
+          <button class="close-btn" id="closeConfirmModal">&times;</button>
+        </div>
+        <div class="modal-content">
+          <p id="confirmModalMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button id="confirmModalYesBtn" class="modal-btn primary-btn">
+            Yes
+          </button>
+          <button id="confirmModalNoBtn" class="modal-btn secondary-btn">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de formulaire pour Update et AddVerb -->
+    <div id="formModalOverlay" class="modal-overlay">
+      <div class="modal-container form-modal-container">
+        <div class="modal-header">
+          <h3 id="formModalTitle">Modifier/Ajouter un verbe</h3>
+          <button class="close-btn" id="closeFormModal">&times;</button>
+        </div>
+        <div class="modal-content" id="formModalContent">
+          <!-- Le contenu du formulaire sera inséré ici dynamiquement -->
+        </div>
+        <div class="modal-footer">
+          <button id="formModalSubmitBtn" class="modal-btn primary-btn">
+            Enregistrer
+          </button>
+          <button id="formModalCancelBtn" class="modal-btn secondary-btn">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
