@@ -13,8 +13,8 @@ The application features a comprehensive table displaying verbs along with their
   - Actions: Show synonym, Update, Delete
 - **Quick navigation** with links to directly access verbs by their initial letter.
 - **Search bar** to find a specific verb.
-- **"Add" button** to insert a new verb into the database.
-- **Statistics** on the existing letters in the database.
+- **"Add" button** to insert a new verb into the list.
+- **Statistics** on the existing letters in the list.
 
 ## 🌐 Project Access
 🔗[Link to the site](https://english-irregular-verbs-table.netlify.app/)
