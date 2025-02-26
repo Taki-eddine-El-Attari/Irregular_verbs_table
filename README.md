@@ -17,6 +17,6 @@ The application features a comprehensive table displaying verbs along with their
 - **Statistics** on the existing letters in the list.
 
 ## 🌐 Project Access
-🔗[Link to the site](https://english-irregular-verbs-table.netlify.app/)
+🔗 [Link to the site](https://english-irregular-verbs-table.netlify.app/)
 
 
